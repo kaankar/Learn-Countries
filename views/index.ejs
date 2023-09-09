@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn Countries</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+  </head>
+  <body class="d-flex flex-column justify-content-between">
+    <header class="p-3 mb-3 border-bottom">
+      <div class="container">
+        <div
+          class="d-flex flex-column align-items-center justify-content-center"
+        >
+          <a
+            href="/"
+            class="d-flex justify-content-center align-items-center mb-4 link-body-emphasis text-decoration-none col-12 col-lg-auto"
+          >
+            <img
+              src="./images/social-planet.png"
+              class="bi me-2"
+              width="30"
+              height="30"
+              alt="Earth"
+            />
+            <h1 class="display-2 ms-3">Learn Countries</h1>
+          </a>
+
+          <form
+            id="searchForm"
+            action="/search"
+            method="post"
+            class="col-12 col-md-10 col-lg-8 col-xl-6 mb-3 mb-lg-0 me-lg-3 d-flex gap-2"
+            role="search"
+          >
+            <input
+              id="searchInput"
+              name="selectedCountry"
+              type="search"
+              class="form-control"
+              placeholder="Country Name"
+              aria-label="Search Keyword"
+              list="countries"
+              required
+            />
+            <datalist id="countries">
+              <% if (locals.countries) { %> <% for (let i = 0; i <
+              Object.keys(countries).length; i++) { %>
+              <option value="<%= countries[i] %>"></option>
+              <% } } %>
+            </datalist>
+            <input
+              type="submit"
+              class="btn btn-outline-primary"
+              value="Search"
+            />
+          </form>
+        </div>
+      </div>
+    </header>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/check.js"></script>
+
+    <% if (locals.result) { %> <%- include('partials/search.ejs') %> <% } else {
+    %> <%- include('partials/home.ejs') %> <% } %>
+
+    <footer
+      class="text-center d-flex justify-content-center mt-5 border-top"
+      style="width: 100%"
+    >
+      <div class="container text-dark py-4 py-lg-5">
+        <p class="mb-0">
+          Copyright © <%= new Date().getFullYear() %> Kaan Kara
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

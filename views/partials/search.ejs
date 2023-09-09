@@ -1,0 +1,41 @@
+<main class="container mt-4">
+  <div class="d-flex flex-wrap justify-content-center gap-5 pb-3">
+    <ul class="list-unstyled text-center text-sm-start">
+      <li><span>Official name : </span><%= result.name.official %></li>
+      <% if (Object.values(result.name.nativeName).length !== 0) {%>
+      <li>
+        <% let nativeName = Object.values(result.name.nativeName) %>
+        <span>Native name : </span><%= nativeName[0].official %>
+      </li>
+      <% } %> <% if (result.capital.length !== 0) {%>
+      <li><span>Capital : </span><%= result.capital[0] %></li>
+      <% } %>
+      <li>
+        <% let languages = Object.values(result.languages) %>
+        <span>Languages : </span><%= languages %>
+      </li>
+      <li><span>Population : </span><%= result.population %></li>
+      <% let currencies = Object.values(result.currencies) %> <% if
+      (currencies.length !== 0) { %>
+      <li><span>Currency : </span><%= currencies[0].name %></li>
+      <li>
+        <% let currenciesSymbol = Object.values(result.currencies) %>
+        <span>Currency Symbol : </span><%= currenciesSymbol[0].symbol %>
+      </li>
+      <% } %>
+    </ul>
+    <img
+      class="bi me-2"
+      src="<%= result.flags.png %>"
+      alt="flag"
+      width="200"
+      height="136"
+      style="border: 0.5px solid #575151"
+    />
+  </div>
+  <div
+    class="d-flex flex-column justify-content-center align-items-center mt-4"
+  >
+    <%- iframe %>
+  </div>
+</main>
