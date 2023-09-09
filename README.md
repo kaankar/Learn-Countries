@@ -14,6 +14,7 @@ Note: This project utilizes a public API called [Restcountries API](https://rest
 
 - **Responsive Style:** The project is responsive to all devices.
 
+## Project Images
   
 ![Home](public/images/projectScreenShot1.PNG)
 
